@@ -1,6 +1,14 @@
 import { FC } from 'react'
+import { IButton } from './form.interface'
+import cn from 'classnames'
 
-const Button: FC = () => {
-	return <div>Button</div>
+import styles from './form.module.scss'
+
+const Button: FC<IButton> = ({ children, className, ...rest }) => {
+	return (
+		<button className={cn(styles.button, className)} {...rest}>
+			{children}
+		</button>
+	)
 }
 export default Button

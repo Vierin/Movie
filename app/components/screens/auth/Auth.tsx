@@ -5,8 +5,9 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { IAuthInput } from './auth.interface'
 import Meta from '@/utils/meta/Meta'
 import styles from './Auth.module.scss'
-import Heading from '@/components/ui/heading/Heading'
-// import Button from '@/components/ui/button/Button'
+import Heading from '@/ui/heading/Heading'
+import Button from '@/ui/form-elements/Button'
+import AuthFields from './AuthFields'
 
 const Auth: FC = () => {
 	useAuthRedirect()
@@ -43,6 +44,12 @@ const Auth: FC = () => {
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Heading title="Auth" className="mb-6" />
 
+					<AuthFields
+						formState={formState}
+						register={registerInput}
+						isPasswordRequired
+					/>
+
 					<div className={styles.buttons}>
 						<Button
 							type="submit"
@@ -50,6 +57,13 @@ const Auth: FC = () => {
 							disabled={isLoading}
 						>
 							Login
+						</Button>
+						<Button
+							type="submit"
+							onClick={() => setType('register')}
+							disabled={isLoading}
+						>
+							Register
 						</Button>
 					</div>
 				</form>

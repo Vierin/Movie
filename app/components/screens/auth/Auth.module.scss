@@ -1,0 +1,23 @@
+.wrapper {
+	@apply mt-32;
+
+	> form {
+		@apply mx-auto w-1/2 air-block  p-7 text-center shadow-lg;
+		background-color: #131212;
+
+		.buttons {
+			@apply mt-12;
+
+			> button {
+				&:first-child {
+					@apply rounded-r-none;
+				}
+
+				&:last-child {
+					@apply rounded-l-none opacity-80 hover:opacity-100 transition-opacity;
+					background-color: #8f050b;
+				}
+			}
+		}
+	}
+}
